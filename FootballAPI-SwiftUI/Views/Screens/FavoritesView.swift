@@ -5,4 +5,18 @@
 //  Created by İzmir İnovasyon ve Teknoloji on 3.12.2024.
 //
 
-import Foundation
+import SwiftUI
+
+struct FavoritesView: View {
+    var body: some View {
+        VStack {
+            Text("Favorites Screen")
+                .font(.largeTitle)
+                .padding()
+        }
+    }
+}
+
+#Preview {
+    FavoritesView()
+}

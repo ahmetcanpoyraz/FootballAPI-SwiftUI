@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Profile Screen")
+            // Çıkış butonu
+            Button(action: {
+                isLoggedIn = false   // Çıkış yapıldığında durumu false yap
+            }) {
+                Text("Log Out")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
+            .padding()
+         
+        }
     }
 }
 

@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct LeagueModel: Codable {
+    let success: Bool
+    let result: [Result]
+}
+
+struct Result: Codable, Identifiable {
+    let id = UUID()
+    let league, key: String
+}
