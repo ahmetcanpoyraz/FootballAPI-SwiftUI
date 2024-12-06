@@ -11,9 +11,8 @@ struct HomeView: View {
     @StateObject private var viewModel = HomeViewModel()
     @State private var searchTerm: String = "" // Arama terimi için bir değişken
 
-
     var body: some View {
-        NavigationStack{
+        NavigationStack {
             VStack {
                 if viewModel.isLoading {
                     ProgressView("Loading...")
@@ -22,21 +21,22 @@ struct HomeView: View {
                         .foregroundColor(.red)
                 } else {
                     List(viewModel.filteredLeagues, id: \.id) { league in
-                        VStack(alignment: .leading) {
-                            Text(league.league)
-                                .font(.headline)
+                        NavigationLink(destination: HomeDetailView(selectedLeagueKey: String(league.key),selectedLeague: String(league.league))) {
+                            VStack(alignment: .leading) {
+                                Text(league.league)
+                                    .font(.headline)
+                            }
                         }
                     }
                 }
             }
-        }.searchable(text: $searchTerm, prompt: "Search Leagues")
-            .onChange(of: searchTerm) { oldValue, newValue in
-                  viewModel.filterLeagues(by: newValue) // Arama terimine göre filtreleme
-            }
-        
+        }
+        .searchable(text: $searchTerm, prompt: "Search Leagues")
+        .onChange(of: searchTerm) { oldValue, newValue in
+            viewModel.filterLeagues(by: newValue) // Arama terimine göre filtreleme
+        }
     }
 }
-
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

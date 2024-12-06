@@ -8,13 +8,14 @@
 import Foundation
 
 // MARK: - TeamsModel
-struct TeamsModel: Codable {
+struct TeamModel: Codable {
     let success: Bool
-    let result: [Teams]
+    let result: [Team]
 }
 
 // MARK: - Result
-struct Teams: Codable {
-    let rank, lose, win, play: String
-    let point, team: String
+struct Team: Codable {
+    let rank, lose, win, play: Int
+       let point: Int
+       let team: String
 }

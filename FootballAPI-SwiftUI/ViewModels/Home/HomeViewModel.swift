@@ -10,14 +10,14 @@ import Combine
 
 @MainActor
 class HomeViewModel: ObservableObject {
-    @Published var leagueList: [Result] = []
-    @Published var filteredLeagues: [Result] = [] // Arama sonuçlarına göre filtrelenmiş ligler
+    @Published var leagueList: [League] = []
+    @Published var filteredLeagues: [League] = [] // Arama sonuçlarına göre filtrelenmiş ligler
     @Published var isLoading = false
     @Published var errorMessage: String? = nil
 
-    private var repository: LeaguesRepository
+    private var repository: LeagueRepository
 
-    init(repository: LeaguesRepository = LeaguesRepository()) {
+    init(repository: LeagueRepository = LeagueRepository()) {
         self.repository = repository
         fetchLeagues()
     }
@@ -46,6 +46,8 @@ class HomeViewModel: ObservableObject {
             self.isLoading = false
         }
     }
+    
+
 
     
     

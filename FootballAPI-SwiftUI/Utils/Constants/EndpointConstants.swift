@@ -14,15 +14,13 @@ class EndpointConstants {
     private init() {}  // Private initializer, dışarıdan instance oluşturulmasını engeller
 
     let baseURL = "https://api.collectapi.com/sport/"
-    let apiKey = "apikey 4JR9w2xpiQnHaWLm7lHxN2:5sNy7VQ1l0Ra0k1ee5soLT"
+    let apiKey = "apikey 7KZsEYxCD0B9J1XwDGBtUF:2T9BHGW4dDX5LVQx3O6f5y"
     
     let leaguelist = "leaguesList"
-    let teams = "league"
+    let teams = "league?data.league="
     
     
-    // Diğer endpoint'ler buraya eklenebilir
-    // let playersEndpoint = "https://api-football-v1.p.rapidapi.com/v3/players"
-    // Diğer sabitler...
+ 
 }
 
 

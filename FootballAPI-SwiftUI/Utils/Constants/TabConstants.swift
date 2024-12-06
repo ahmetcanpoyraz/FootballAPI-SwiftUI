@@ -10,7 +10,6 @@ import SwiftUI
 enum TabConstants {
     static let tabs: [TabItemModel] = [
         TabItemModel(title: "Home", systemImage: "house", view: AnyView(HomeView())),
-        TabItemModel(title: "Favorites", systemImage: "heart", view: AnyView(FavoritesView())),
         TabItemModel(title: "Profile", systemImage: "person", view: AnyView(ProfileView()))
     ]
 }

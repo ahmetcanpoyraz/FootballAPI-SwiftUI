@@ -49,10 +49,27 @@ class APIClient {
             default:
                 throw NetworkError.serverError
             }
-            let decodedData = try JSONDecoder().decode(T.self, from: data)
-            return decodedData
+            do {
+                let decodedData = try JSONDecoder().decode(T.self, from: data)
+                return decodedData
+            } catch let decodingError as DecodingError {
+                switch decodingError {
+                case .typeMismatch(let key, let context):
+                    print("Type mismatch for key: \(key). Context: \(context.debugDescription)")
+                case .valueNotFound(let key, let context):
+                    print("Value not found for key: \(key). Context: \(context.debugDescription)")
+                case .keyNotFound(let key, let context):
+                    print("Key not found: \(key). Context: \(context.debugDescription)")
+                case .dataCorrupted(let context):
+                    print("Data corrupted: \(context.debugDescription)")
+                @unknown default:
+                    print("Unknown decoding error")
+                }
+                throw decodingError
+            }
         } catch {
-            throw NetworkError.requestFailed
+            print("Unexpected error: \(error.localizedDescription)")
+            throw error
         }
     }
 }

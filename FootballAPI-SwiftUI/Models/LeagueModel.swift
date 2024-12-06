@@ -9,10 +9,10 @@ import Foundation
 
 struct LeagueModel: Codable {
     let success: Bool
-    let result: [Result]
+    let result: [League]
 }
 
-struct Result: Codable, Identifiable {
+struct League: Codable, Identifiable {
     let id = UUID()
     let league, key: String
 }

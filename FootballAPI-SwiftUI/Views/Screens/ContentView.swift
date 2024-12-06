@@ -10,11 +10,13 @@ import CoreData
 
 struct ContentView: View {
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
-    
     var body: some View {
-        if isLoggedIn {
-            
-            
+        
+     
+        
+    if isLoggedIn {
+         
+    
             TabView {
                 ForEach(0..<TabConstants.tabs.count, id: \.self) { index in
                     TabConstants.tabs[index].view
