@@ -19,4 +19,5 @@ class LeaguesRepository {
         let leaugeModel: LeagueModel = try await apiClient.request(urlString: url, method: .get)
         return leaugeModel.result
     }
+    
 }
